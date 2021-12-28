@@ -29,6 +29,15 @@ print( "Sample data standard deviation is", sample_stdev)
 
 df2 = mean_list
 mean = statistics.mean(df2)
-fig = ff.create_distplot([df2], ["reading_time"], show_hist=False)
+
+'''fig = ff.create_distplot([df2], ["reading_time"], show_hist=False)
 fig.add_trace(go.Scatter(x=[mean, mean], y=[0,1], mode="lines", name='Mean'))
-fig.show()
+fig.show()'''
+
+df = pd.read_csv("data.csv")
+data = df["reading_time"].tolist()
+sample_mean1 = statistics.mean(data)
+
+z_score = (sample_mean1 - sample_mean)/sample_stdev
+
+print(z_score)
